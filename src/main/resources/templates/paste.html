@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View Paste</title>
+<style>
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f6f8fa;
+	padding: 40px;
+}
+
+.container {
+	max-width: 800px;
+	margin: auto;
+	background: white;
+	padding: 20px;
+	border-radius: 8px;
+}
+
+pre {
+	background: #f0f0f0;
+	padding: 15px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	border-radius: 5px;
+}
+
+.meta {
+	margin-top: 10px;
+	color: #555;
+	font-size: 14px;
+}
+</style>
+</head>
+<body>
+
+	<div class="container">
+		<h2>📄 Shared Paste</h2>
+
+		<!-- Paste Content -->
+		<pre th:text="${content}"></pre>
+
+		<!-- Metadata -->
+		<div class="meta">
+			<p th:if="${remainingViews != null}">
+				Remaining Views: <b th:text="${remainingViews}"></b>
+			</p>
+
+			<p th:if="${expiresAt != null}">
+				Expires At: <b th:text="${expiresAt}"></b>
+			</p>
+		</div>
+	</div>
+
+</body>
+</html>
